@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, ExternalLink, ChevronDown, Shield, Code, Terminal } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, ExternalLink, ChevronDown, Shield, Terminal } from 'lucide-react';
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,13 +66,6 @@ export default function Portfolio() {
       tech: ["Python", "Malware Analysis", "Security", "File Analysis"],
       link: "https://github.com/tbhuiyan625",
       icon: <Terminal className="w-6 h-6 mb-3 text-cyan-400" />
-    },
-    {
-      title: "Port Scanner & Service Detection",
-      description: "Python port scanner with service banner grabbing to identify open ports and exposed services",
-      tech: ["Python", "Network Security", "Port Scanning"],
-      link: "https://github.com/tbhuiyan625",
-      icon: <Code className="w-6 h-6 mb-3 text-blue-400" />
     }
   ];
 
@@ -685,7 +678,7 @@ export default function Portfolio() {
           <h2 className="text-4xl sm:text-5xl font-bold mb-12 text-center gradient-text">
             Featured Projects
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {projects.map((project, idx) => (
               <div 
                 key={idx} 
