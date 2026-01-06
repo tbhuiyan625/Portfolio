@@ -19,7 +19,7 @@ export default function ContactSection({ isVisible }) {
       const response = await fetch('https://formspree.io/f/xrebwnnw', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
           name: formData.name,
@@ -28,22 +28,25 @@ export default function ContactSection({ isVisible }) {
         })
       });
 
-      if (response.ok) {
+      if (response.ok || response.status === 200) {
         setStatus({
           type: 'success',
           message: 'Thank you for your message! I\'ll get back to you soon.'
         });
         setFormData({ name: '', email: '', message: '' });
       } else {
+        const errorData = await response.json();
+        console.error('Formspree error:', errorData);
         setStatus({
           type: 'error',
-          message: 'Something went wrong. Please try again.'
+          message: 'Something went wrong. Please try again or email me directly.'
         });
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setStatus({
         type: 'error',
-        message: 'Failed to send message. Please try again.'
+        message: 'Failed to send message. Please try emailing me directly at tbhuiyan625@gmail.com'
       });
     } finally {
       setIsSubmitting(false);
