@@ -159,19 +159,6 @@ export default function Navbar() {
             <span>Get in Touch</span>
             <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
-
-          {/* Mobile Footer Info */}
-          <div 
-            className="mt-8 pt-8 border-t border-white/10 text-center"
-            style={{ 
-              transitionDelay: '200ms',
-              opacity: isMenuOpen ? 1 : 0
-            }}
-          >
-            <p className="text-sm text-gray-500">
-              © {new Date().getFullYear()} Taheem Bhuiyan
-            </p>
-          </div>
         </div>
       </div>
 
