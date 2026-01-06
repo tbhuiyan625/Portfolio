@@ -16,12 +16,16 @@ export default function ContactSection({ isVisible }) {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://formsubmit.co/tbhuiyan625@gmail.com', {
+      const response = await fetch('https://formspree.io/f/xrebwnnw', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
       });
 
       if (response.ok) {
