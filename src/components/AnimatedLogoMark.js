@@ -26,11 +26,6 @@ export default function AnimatedLogoMark({ variant = 'circle', size = 'hero' }) 
     nav: 'text-lg'
   };
 
-  const ringRadiusClasses = {
-    hero: 'r-175',
-    nav: 'r-50'
-  };
-
   return (
     <div 
       className={`animated-logo-mark-container ${sizeClasses[size]}`}
