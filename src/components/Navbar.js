@@ -60,7 +60,6 @@ export default function Navbar() {
               aria-label="Go to home section"
             >
               <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-[#11131a] via-[#0c0e12] to-black border border-white/10 shadow-[0_10px_26px_rgba(0,0,0,0.55)] overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_16px_30px_rgba(0,0,0,0.55),0_0_18px_rgba(200,218,230,0.25)]">
-                <div className="absolute inset-0 bg-white/10 opacity-60" style={{ mixBlendMode: 'screen' }} />
                 <TbMonogram size="nav" className="w-11 h-8" />
               </div>
               <span className="hidden sm:block text-sm font-semibold text-white tracking-wide">
