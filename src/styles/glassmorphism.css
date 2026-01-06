@@ -88,30 +88,6 @@
   transform: translateY(0);
 }
 
-/* Spotlight Effect on Cards */
-.glass-card-spotlight {
-  position: relative;
-}
-
-.glass-card-spotlight::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 255, 255, 0.04),
-    transparent 50%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.glass-card-spotlight:hover::after {
-  opacity: 1;
-}
-
 /* Frosted Glass Overlay */
 .frosted-overlay {
   background: rgba(10, 14, 26, 0.8);
