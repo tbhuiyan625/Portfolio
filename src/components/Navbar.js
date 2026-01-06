@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import TbMonogram from './TbMonogram';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,10 +59,9 @@ export default function Navbar() {
               className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-lg px-2 py-1 -ml-2"
               aria-label="Go to home section"
             >
-              <div className="relative">
-                <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center font-bold text-black text-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-white/20">
-                  TB
-                </div>
+              <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-[#11131a] via-[#0c0e12] to-black border border-white/10 shadow-[0_10px_26px_rgba(0,0,0,0.55)] overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_16px_30px_rgba(0,0,0,0.55),0_0_18px_rgba(200,218,230,0.25)]">
+                <div className="absolute inset-0 bg-white/10 opacity-60" style={{ mixBlendMode: 'screen' }} />
+                <TbMonogram size="nav" className="w-11 h-8" />
               </div>
               <span className="hidden sm:block text-sm font-semibold text-white tracking-wide">
                 Taheem Bhuiyan

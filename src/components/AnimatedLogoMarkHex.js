@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import './AnimatedLogoMarkHex.css';
+import TbMonogram from './TbMonogram';
 
 /**
  * AnimatedLogoMarkHex Component
@@ -21,9 +22,9 @@ export default function AnimatedLogoMarkHex({ size = 'hero' }) {
     nav: 'w-12 h-12'
   };
 
-  const textSizeClasses = {
-    hero: 'text-7xl sm:text-8xl lg:text-9xl',
-    nav: 'text-lg'
+  const monogramSizes = {
+    hero: 'w-[190px] h-[130px] sm:w-[210px] sm:h-[145px] lg:w-[240px] lg:h-[160px]',
+    nav: 'w-11 h-8'
   };
 
   return (
@@ -143,12 +144,10 @@ export default function AnimatedLogoMarkHex({ size = 'hero' }) {
             </svg>
           )}
 
-          {/* TB Text - Futuristic Monogram */}
-          <span 
-            className={`${textSizeClasses[size]} font-monogram text-white relative z-10 select-none`}
-          >
-            TB
-          </span>
+          {/* TB Monogram - SVG paths for consistent futuristic styling */}
+          <div className={`relative z-10 select-none flex items-center justify-center ${monogramSizes[size]}`}>
+            <TbMonogram size={size} />
+          </div>
         </div>
       </div>
     </div>
