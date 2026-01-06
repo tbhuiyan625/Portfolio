@@ -145,13 +145,7 @@ export default function AnimatedLogoMarkHex({ size = 'hero' }) {
 
           {/* TB Text - Futuristic Monogram */}
           <span 
-            className={`${textSizeClasses[size]} font-bold text-white relative z-10 tracking-wider select-none`}
-            style={{
-              fontFamily: "var(--font-monogram, 'Oxanium', 'Space Grotesk', sans-serif)",
-              fontWeight: 800,
-              letterSpacing: '0.04em',
-              textShadow: '0 0 1px rgba(255,255,255,0.3)',
-            }}
+            className={`${textSizeClasses[size]} font-monogram text-white relative z-10 select-none`}
           >
             TB
           </span>
