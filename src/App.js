@@ -166,12 +166,7 @@ export default function Portfolio() {
       {/* Contact Section */}
       <ContactSection isVisible={visibleSections.has('contact')} />
 
-      {/* Footer */}
-      <footer className="relative z-10 py-8 text-center text-gray-400 border-t border-white/10">
-        <p className="text-sm">
-          © {new Date().getFullYear()} Taheem Bhuiyan. Built with React.
-        </p>
-      </footer>
+      {/* Footer removed per request */}
     </div>
   );
 }
