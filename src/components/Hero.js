@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import AnimatedLogoMark from './AnimatedLogoMark';
 
 export default function Hero({ scrollToSection }) {
   const socialLinks = [
@@ -29,21 +30,7 @@ export default function Hero({ scrollToSection }) {
           
           {/* Left Column (Desktop) / First on Mobile - Avatar */}
           <div className="flex justify-center lg:justify-start animate-fade-in-up order-1">
-            <div className="relative">
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-white/10 rounded-full blur-[60px] scale-110"></div>
-              
-              {/* Avatar Container */}
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-white/20 via-white/10 to-white/5 p-[3px]">
-                <div className="w-full h-full rounded-full bg-[#0B0B0D] flex items-center justify-center border border-white/10 relative overflow-hidden group">
-                  {/* Hover Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  {/* Text */}
-                  <span className="text-7xl sm:text-8xl lg:text-9xl font-bold text-white relative z-10">TB</span>
-                </div>
-              </div>
-            </div>
+            <AnimatedLogoMark variant="circle" size="hero" />
           </div>
 
           {/* Right Column (Desktop) / Second on Mobile - Content */}

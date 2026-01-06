@@ -1,0 +1,199 @@
+/* ============================================
+   Animated Logo Mark - Premium Cybersecurity
+   ============================================ */
+
+.animated-logo-mark-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   SCAN RING ANIMATION
+   Full rotation every 12 seconds (adjustable)
+   ============================================ */
+@keyframes scan-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Supports reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scan-ring {
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scan-ring {
+    animation: scan-rotate 12s linear infinite;
+    transform-origin: 200px 200px;
+  }
+
+  /* Speed up on hover (smooth transition) */
+  svg.hover-active .scan-ring {
+    animation: scan-rotate 8s linear infinite;
+  }
+}
+
+/* ============================================
+   SWEEP HIGHLIGHT ANIMATION
+   Radar-like sweep that travels around ring
+   ============================================ */
+@keyframes sweep-motion {
+  0% {
+    stroke-dasharray: 0, 1100;
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.4;
+  }
+  45% {
+    stroke-dasharray: 150, 1100;
+    stroke-dashoffset: 0;
+    opacity: 0.4;
+  }
+  50% {
+    stroke-dasharray: 150, 1100;
+    stroke-dashoffset: -550;
+    opacity: 0.2;
+  }
+  95% {
+    stroke-dasharray: 0, 1100;
+    stroke-dashoffset: -1100;
+    opacity: 0;
+  }
+  100% {
+    stroke-dasharray: 0, 1100;
+    stroke-dashoffset: -1100;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sweep-highlight {
+    animation: sweep-motion 4s ease-in-out 2s infinite;
+  }
+}
+
+/* ============================================
+   CORNER BRACKET PULSE
+   Gentle opacity + scale pulse
+   ============================================ */
+@keyframes bracket-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bracket-group {
+    animation: bracket-pulse 3s cubic-bezier(0.4, 0.0, 0.6, 1.0) infinite;
+    animation-delay: var(--delay, 0s);
+  }
+}
+
+/* ============================================
+   HOVER EFFECT STATE
+   Badge glow enhancement on interaction
+   ============================================ */
+.logo-badge-hover {
+  box-shadow: 
+    0 0 30px rgba(255, 255, 255, 0.15),
+    0 0 60px rgba(255, 255, 255, 0.08),
+    inset 0 0 30px rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.6, 1.0);
+}
+
+/* ============================================
+   OPTIMIZATIONS
+   Performance-focused transforms only
+   ============================================ */
+
+/* Prevent layout thrashing */
+.animated-logo-mark-container {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+svg {
+  will-change: transform;
+}
+
+/* Hardware acceleration for animations */
+.scan-ring {
+  paint-order: normal;
+}
+
+/* ============================================
+   CUSTOMIZATION VARIABLES
+   Adjust these for different effects
+   ============================================ */
+
+:root {
+  /* Rotation speed (in seconds for full rotation) */
+  /* Default: 12s - Slower, more subtle
+     Faster: 8s - More noticeable
+     Slower: 16s - Very subtle, barely noticeable */
+  --scan-ring-duration: 12s;
+
+  /* Sweep highlight cycle time */
+  --sweep-duration: 4s;
+
+  /* Bracket pulse speed */
+  --bracket-pulse-duration: 3s;
+
+  /* Glow intensity (0.1 to 0.3 recommended) */
+  --glow-intensity: 0.15;
+}
+
+/* ============================================
+   DARK BACKGROUND COMPATIBILITY
+   Ensures visibility on dark gradient backgrounds
+   ============================================ */
+
+.animated-logo-mark-container {
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.08));
+}
+
+/* Increase glow on hover */
+.animated-logo-mark-container:hover {
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.15));
+  transition: filter 0.3s cubic-bezier(0.4, 0.0, 0.6, 1.0);
+}
+
+/* ============================================
+   REDUCED MOTION PREFERENCE
+   Respects user accessibility settings
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-logo-mark-container,
+  .scan-ring,
+  .sweep-highlight,
+  .bracket-group,
+  .logo-badge-hover {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Keep static premium look */
+  .logo-badge-hover {
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.1),
+      0 0 40px rgba(255, 255, 255, 0.05),
+      inset 0 0 20px rgba(255, 255, 255, 0.03);
+  }
+}
