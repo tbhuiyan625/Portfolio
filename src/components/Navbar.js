@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
-import Logo from './Logo';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,74 +50,54 @@ export default function Navbar() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <button
-              onClick={() => scrollToSection('home')}
-              className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-lg px-2 py-1 -ml-2"
-              aria-label="Go to home section"
-            >
-              <div className="transition-transform duration-300 group-hover:scale-105">
-                <Logo size="sm" />
-              </div>
-              <span className="hidden sm:block text-sm font-semibold text-white tracking-wide">
-                Taheem Bhuiyan
-              </span>
-            </button>
-
-            {/* Center Navigation - Desktop */}
-            <div className="hidden md:flex items-center gap-2">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`
-                    relative px-5 py-2.5 text-sm font-medium tracking-wide transition-all duration-300 rounded-lg
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50
-                    ${
-                      activeSection === item.id 
-                        ? 'text-white bg-white/5' 
-                        : 'text-white/60 hover:text-white hover:bg-white/5'
-                    }
-                  `}
-                  aria-current={activeSection === item.id ? 'page' : undefined}
-                >
-                  <span className="relative z-10">{item.label}</span>
-                  
-                  {/* Active indicator - bottom line */}
-                  {activeSection === item.id && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-white rounded-full"></span>
-                  )}
-                </button>
-              ))}
-            </div>
-
-            {/* Right Side - CTA Button */}
-            <div className="flex items-center gap-4">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative h-20">
+          {/* Center Navigation - Desktop (absolute centered) */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-2">
+            {navItems.map((item) => (
               <button
-                onClick={() => scrollToSection('contact')}
-                className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-white/10 text-white text-sm font-semibold rounded-lg border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 group backdrop-blur-sm"
-                aria-label="Get in touch"
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`
+                  relative px-5 py-2.5 text-sm font-medium tracking-wide transition-all duration-300 rounded-lg
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50
+                  ${
+                    activeSection === item.id 
+                      ? 'text-white bg-white/5' 
+                      : 'text-white/60 hover:text-white hover:bg-white/5'
+                  }
+                `}
+                aria-current={activeSection === item.id ? 'page' : undefined}
               >
-                <span>Get in Touch</span>
-                <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </button>
-
-              {/* Mobile Menu Button */}
-              <button
-                className="md:hidden p-2.5 hover:bg-white/5 rounded-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-                aria-expanded={isMenuOpen}
-              >
-                {isMenuOpen ? (
-                  <X size={24} className="text-white" />
-                ) : (
-                  <Menu size={24} className="text-white" />
+                <span className="relative z-10">{item.label}</span>
+                {activeSection === item.id && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-white rounded-full"></span>
                 )}
               </button>
-            </div>
+            ))}
+          </div>
+
+          {/* Right Side - CTA + Menu (absolute right) */}
+          <div className="absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 flex items-center gap-4">
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-white/10 text-white text-sm font-semibold rounded-lg border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 group backdrop-blur-sm"
+              aria-label="Get in touch"
+            >
+              <span>Get in Touch</span>
+              <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </button>
+            <button
+              className="md:hidden p-2.5 hover:bg-white/5 rounded-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? (
+                <X size={24} className="text-white" />
+              ) : (
+                <Menu size={24} className="text-white" />
+              )}
+            </button>
           </div>
         </div>
       </nav>
