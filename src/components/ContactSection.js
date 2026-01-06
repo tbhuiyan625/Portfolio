@@ -9,22 +9,42 @@ export default function ContactSection({ isVisible }) {
     message: ''
   });
   const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Since we don't have a backend, we'll just show a success message
-    // In a real app, you'd send this to an API endpoint
-    setStatus({
-      type: 'success',
-      message: 'Thank you for your message! I\'ll get back to you soon.'
-    });
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Clear status after 5 seconds
-    setTimeout(() => setStatus({ type: '', message: '' }), 5000);
+    try {
+      const response = await fetch('https://formsubmit.co/tbhuiyan625@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus({
+          type: 'success',
+          message: 'Thank you for your message! I\'ll get back to you soon.'
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus({
+          type: 'error',
+          message: 'Something went wrong. Please try again.'
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setStatus({ type: '', message: '' }), 5000);
+    }
   };
 
   const handleChange = (e) => {
@@ -176,10 +196,11 @@ export default function ContactSection({ isVisible }) {
 
               <button
                 type="submit"
-                className="w-full px-6 py-4 bg-white text-black rounded-lg font-semibold hover:shadow-lg hover:shadow-white/30 transition-all hover:scale-[1.02] flex items-center justify-center gap-2 group"
+                disabled={isSubmitting}
+                className="w-full px-6 py-4 bg-white text-black rounded-lg font-semibold hover:shadow-lg hover:shadow-white/30 transition-all hover:scale-[1.02] flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>Send Message</span>
-                <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                <Send size={18} className={`transition-transform ${!isSubmitting ? 'group-hover:translate-x-1' : ''}`} />
               </button>
             </form>
           </div>
