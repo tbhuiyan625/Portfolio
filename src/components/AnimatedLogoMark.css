@@ -106,13 +106,10 @@
 
 /* ============================================
    HOVER EFFECT STATE
-   Badge glow enhancement on interaction
+   Badge subtle styling on interaction
    ============================================ */
 .logo-badge-hover {
-  box-shadow: 
-    0 0 30px rgba(255, 255, 255, 0.15),
-    0 0 60px rgba(255, 255, 255, 0.08),
-    inset 0 0 30px rgba(255, 255, 255, 0.05);
+  box-shadow: none;
   transition: box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.6, 1.0);
 }
 
@@ -161,16 +158,16 @@ svg {
 
 /* ============================================
    DARK BACKGROUND COMPATIBILITY
-   Ensures visibility on dark gradient backgrounds
+   Minimal subtle styling
    ============================================ */
 
 .animated-logo-mark-container {
-  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.08));
+  filter: none;
 }
 
-/* Increase glow on hover */
+/* No glow on hover */
 .animated-logo-mark-container:hover {
-  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.15));
+  filter: none;
   transition: filter 0.3s cubic-bezier(0.4, 0.0, 0.6, 1.0);
 }
 
@@ -189,11 +186,8 @@ svg {
     transition: none !important;
   }
 
-  /* Keep static premium look */
+  /* Keep static minimal look */
   .logo-badge-hover {
-    box-shadow: 
-      0 0 20px rgba(255, 255, 255, 0.1),
-      0 0 40px rgba(255, 255, 255, 0.05),
-      inset 0 0 20px rgba(255, 255, 255, 0.03);
+    box-shadow: none;
   }
 }

@@ -32,30 +32,24 @@ export default function AnimatedLogoMark({ variant = 'circle', size = 'hero' }) 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Outer Glow */}
-      <div className="absolute inset-0 bg-white/5 rounded-full blur-[60px] scale-125 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-      {/* Main Badge Container */}
-      <div className={`relative w-full h-full rounded-full bg-gradient-to-br from-white/20 via-white/10 to-white/5 p-[3px] ${
+      {/* Badge Container - Dark minimal styling */}
+      <div className={`relative w-full h-full rounded-full bg-gradient-to-br from-gray-900 via-black to-black p-[3px] ${
         variant === 'circle' ? 'rounded-full' : 'rounded-[30%]'
       }`}>
         
         {/* Inner Badge */}
-        <div className={`w-full h-full flex items-center justify-center border border-white/10 relative overflow-hidden group ${
+        <div className={`w-full h-full flex items-center justify-center border border-white/5 relative overflow-hidden group ${
           variant === 'circle' ? 'rounded-full' : 'rounded-[27%]'
         } ${isHovered ? 'logo-badge-hover' : ''}`}
           style={{
-            background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), rgba(255,255,255,0.05) 50%, rgba(10,10,13,1))'
+            background: 'linear-gradient(135deg, rgba(30,30,35,1) 0%, rgba(15,15,18,1) 100%)'
           }}
         >
-          {/* Premium Glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
           {/* SVG Animated Elements */}
           <svg 
             className={`absolute w-full h-full ${isHovered ? 'hover-active' : ''}`}
             viewBox="0 0 400 400"
-            style={{ filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.1))' }}
           >
             {/* === SCAN RING === */}
             <circle
@@ -83,18 +77,18 @@ export default function AnimatedLogoMark({ variant = 'circle', size = 'hero' }) 
 
             {/* === GRADIENTS === */}
             <defs>
-              {/* Scan ring gradient */}
+              {/* Scan ring gradient - subtle gray */}
               <linearGradient id="scanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(255,255,255,0.6)" />
-                <stop offset="50%" stopColor="rgba(255,255,255,0.2)" />
-                <stop offset="100%" stopColor="rgba(255,255,255,0.6)" />
+                <stop offset="0%" stopColor="rgba(200,200,200,0.4)" />
+                <stop offset="50%" stopColor="rgba(180,180,180,0.15)" />
+                <stop offset="100%" stopColor="rgba(200,200,200,0.4)" />
               </linearGradient>
 
-              {/* Sweep highlight gradient */}
+              {/* Sweep highlight gradient - very subtle */}
               <linearGradient id="sweepGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(255,255,255,0)" />
-                <stop offset="50%" stopColor="rgba(255,255,255,0.8)" />
-                <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+                <stop offset="0%" stopColor="rgba(200,200,200,0)" />
+                <stop offset="50%" stopColor="rgba(180,180,180,0.3)" />
+                <stop offset="100%" stopColor="rgba(200,200,200,0)" />
               </linearGradient>
             </defs>
           </svg>
@@ -108,7 +102,7 @@ export default function AnimatedLogoMark({ variant = 'circle', size = 'hero' }) 
             >
               <defs>
                 <style>{`
-                  .bracket { fill: none; stroke: rgba(255,255,255,0.5); stroke-width: 2.5; }
+                  .bracket { fill: none; stroke: rgba(255,255,255,0.25); stroke-width: 2.5; }
                   @media (prefers-reduced-motion: no-preference) {
                     .bracket-group { animation: bracket-pulse 3s cubic-bezier(0.4, 0.0, 0.6, 1.0) infinite; }
                   }
