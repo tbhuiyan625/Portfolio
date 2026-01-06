@@ -1,19 +1,66 @@
 .tb-monogram {
-  display: block;
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.52)) drop-shadow(0 0 16px rgba(200, 218, 230, 0.22));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: transparent;
+  background: linear-gradient(180deg, #f4f7fa 0%, #d7dde5 48%, #a7b0bb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: 'Orbitron', 'Oxanium', 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transform: skewX(-8deg);
+  -webkit-text-stroke: 0.8px rgba(255, 255, 255, 0.18);
+  text-rendering: optimizeLegibility;
   transition: filter 200ms cubic-bezier(0.4, 0, 0.2, 1), transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.tb-monogram__glyph {
+  position: relative;
+  display: block;
+  line-height: 0.95;
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.28),
+    0 0 7px rgba(205, 225, 240, 0.16),
+    0 0 22px rgba(160, 190, 215, 0.08);
+  clip-path: polygon(2% 0%, 98% 0%, 100% 10%, 100% 90%, 98% 100%, 2% 100%, 0% 90%, 0% 10%);
+}
+
+/* Subtle stencil split */
+.tb-monogram__glyph::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: 48%;
+  height: 10%;
+  background: linear-gradient(90deg, transparent 0%, #0a0c10 18%, #0a0c10 82%, transparent 100%);
+  opacity: 0.95;
+  pointer-events: none;
+  transform: skewX(-8deg);
+}
+
 .tb-monogram--hero {
-  filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 18px rgba(200, 218, 230, 0.25));
+  font-size: 6.4rem;
+  filter:
+    drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.2))
+    drop-shadow(0 0 8px rgba(205, 225, 240, 0.16))
+    drop-shadow(0 0 22px rgba(170, 200, 225, 0.08));
 }
 
 .tb-monogram--nav {
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 10px rgba(180, 200, 215, 0.2));
+  font-size: 1.8rem;
+  filter:
+    drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.2))
+    drop-shadow(0 0 7px rgba(205, 225, 240, 0.14))
+    drop-shadow(0 0 18px rgba(160, 190, 215, 0.07));
 }
 
 .tb-monogram:hover {
-  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.58)) drop-shadow(0 0 22px rgba(210, 224, 235, 0.3));
+  filter:
+    drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.26))
+    drop-shadow(0 0 9px rgba(205, 225, 240, 0.18))
+    drop-shadow(0 0 24px rgba(170, 200, 225, 0.1));
+  transform: skewX(-8deg) translateY(-1px);
 }
