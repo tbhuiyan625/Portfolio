@@ -1,5 +1,6 @@
 /* Import Design Tokens and Styles */
 @import './styles/tokens.css';
+@import './styles/typography.css';
 @import './styles/animations.css';
 @import './styles/glassmorphism.css';
 

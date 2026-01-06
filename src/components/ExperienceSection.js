@@ -19,14 +19,14 @@ export default function ExperienceSection({ experience, isVisible }) {
               {/* Header */}
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-3 mb-6">
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-1">
+                  <h3 className="text-h2 font-bold text-white mb-1 tracking-tight">
                     {exp.role}
                   </h3>
-                  <p className="text-xl text-white/80">
+                  <p className="text-subtitle font-medium text-white/80">
                     {exp.company}
                   </p>
                 </div>
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/20 rounded-full text-gray-300 text-sm whitespace-nowrap">
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/20 rounded-full text-white/70 text-caption whitespace-nowrap tracking-wide">
                   <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
                   {exp.period}
                 </span>
@@ -37,7 +37,7 @@ export default function ExperienceSection({ experience, isVisible }) {
                 {exp.highlights.map((highlight, i) => (
                   <li key={i} className="flex items-start gap-3 text-white/80">
                     <span className="text-white mt-1 text-lg">→</span>
-                    <span style={{lineHeight: '1.7'}}>{highlight}</span>
+                    <span className="text-body-lg leading-relaxed">{highlight}</span>
                   </li>
                 ))}
               </ul>

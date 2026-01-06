@@ -82,15 +82,15 @@ export default function Portfolio() {
   const skills = [
     {
       category: "Languages & Scripting",
-      items: ["Python", "Java", "SQL", "JavaScript", "HTML/CSS", "React"]
+      items: ["Python", "Java", "SQL", "JavaScript", "HTML/CSS", "React", "Bash / Shell", "PowerShell (Basic)", "Linux CLI", "Regex", "REST APIs", "JSON", "YAML", "Automation Scripting"]
     },
     {
       category: "Cybersecurity & IT",
-      items: ["Threat Detection", "Incident Response", "Vulnerability Assessment", "Network Monitoring", "IT Consulting"]
+      items: ["Threat Detection", "Incident Response", "Vulnerability Assessment", "Network Monitoring", "IT Consulting", "Security Monitoring", "Log Analysis", "Detection Fundamentals", "Threat Hunting (Basic)", "Incident Triage", "Vulnerability Management", "OWASP Top 10", "Web Security Basics", "Firewall Concepts", "IAM / Least Privilege"]
     },
     {
       category: "Tools & Platforms",
-      items: ["VS Code", "PyCharm", "IntelliJ", "Google Cloud Platform", "Git", "Tailwind CSS"]
+      items: ["VS Code", "PyCharm", "IntelliJ", "Google Cloud Platform", "Git", "Tailwind CSS", "Linux", "Wireshark", "Nmap", "Burp Suite (Basics)", "GitHub", "Docker (Basics)", "Postman", "VirtualBox"]
     }
   ];
 
@@ -102,13 +102,13 @@ export default function Portfolio() {
 
   const experience = [
     {
-      role: "Technical Intern",
-      company: "Zentrition",
-      period: "Dec 2022 – Jan 2023",
+      role: "Cybersecurity Engineer Intern",
+      company: "Rise and Shine ABA",
+      period: "Dec 2025 – Present",
       highlights: [
-        "Produced digital content using structured workflows and technical editing tools",
-        "Applied problem-solving to improve UI/UX efficiency",
-        "Coordinated multiple projects reducing operational risks"
+        "Developed security-focused features for a healthcare (ABA) web platform across frontend + backend, integrating AWS services with Supabase (Postgres) to support secure, scalable workflows.",
+        "Implemented least-privilege authorization using RBAC + Supabase Row Level Security (RLS) to restrict access to sensitive records by role and tenant, reducing risk of unauthorized data exposure.",
+        "Built an audit logging capability to capture key user/system actions (auth + CRUD events) to improve traceability and support incident investigation and compliance readiness."
       ]
     },
     {

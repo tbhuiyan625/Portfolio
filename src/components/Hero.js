@@ -43,14 +43,6 @@ export default function Hero({ scrollToSection }) {
                   <span className="text-7xl sm:text-8xl lg:text-9xl font-bold text-white relative z-10">TB</span>
                 </div>
               </div>
-
-              {/* Floating Badge */}
-              <div className="absolute -bottom-4 -right-4 px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-white">Available</span>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -64,19 +56,18 @@ export default function Hero({ scrollToSection }) {
 
             {/* Headline */}
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1]">
-                Taheem<br />Bhuiyan
+              <h1 className="text-display-lg sm:text-display-xl font-bold text-white leading-tight tracking-tight lg:whitespace-nowrap">
+                Taheem Bhuiyan
               </h1>
               
               {/* Role */}
-              <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-white/80 leading-tight">
-                Cybersecurity Specialist<br />
-                <span className="text-white/60">& Python Developer</span>
+              <p className="text-subtitle-sm sm:text-subtitle font-semibold text-white/80 tracking-wide">
+                Cybersecurity Engineer
               </p>
             </div>
 
             {/* Description */}
-            <p className="text-base lg:text-lg text-white/70 max-w-[55ch] leading-relaxed" style={{lineHeight: '1.8'}}>
+            <p className="text-body-lg text-white/70 max-w-[55ch] leading-relaxed">
               Building secure systems and innovative solutions with a focus on threat detection and secure software development.
             </p>
 

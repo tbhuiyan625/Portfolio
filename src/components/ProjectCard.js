@@ -22,12 +22,12 @@ export default function ProjectCard({ project, index }) {
       </div>
 
       {/* Title */}
-      <h3 className="text-2xl font-bold mb-3 text-white">
+      <h3 className="text-h3 font-bold mb-3 text-white tracking-tight">
         {project.title}
       </h3>
 
       {/* Description */}
-      <p className="text-white/75 mb-4" style={{lineHeight: '1.7'}}>
+      <p className="text-body text-white/75 mb-4 leading-relaxed">
         {project.description}
       </p>
 
