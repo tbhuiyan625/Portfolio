@@ -1,6 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
-import AnimatedLogoMark from './AnimatedLogoMark';
+import SecurityDashboardCard from './SecurityDashboardCard';
 
 export default function Hero({ scrollToSection }) {
   const socialLinks = [
@@ -30,7 +30,7 @@ export default function Hero({ scrollToSection }) {
           
           {/* Left Column (Desktop) / First on Mobile - Avatar */}
           <div className="flex justify-center lg:justify-start animate-fade-in-up order-1">
-            <AnimatedLogoMark variant="circle" size="hero" />
+            <SecurityDashboardCard size="hero" />
           </div>
 
           {/* Right Column (Desktop) / Second on Mobile - Content */}
