@@ -119,9 +119,8 @@
 .security-card__logfeed-wrapper {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem; /* 16px - separation above */
-  padding-bottom: 1rem; /* 16px - breathing room at bottom */
-  margin-top: 0.5rem; /* 8px - extra gap below Cloud/Infra card */
+  padding: 1rem 1.5rem 1.5rem; /* pt-4 pb-6 px-6 */
+  margin-top: 0.75rem; /* extra gap below Cloud/Infra card */
 }
 
 .security-card__logfeed-divider {
@@ -135,18 +134,26 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem; /* 8px - comfortable line spacing */
-  max-height: 9rem; /* ~140px - fits 6-8 lines comfortably */
-  overflow: hidden; /* Clean crop without visible scrollbar */
+  max-height: 10rem; /* ~160px - intentional height */
+  overflow: auto; /* allow scroll without clipping */
+  mask-image: none;
+  -webkit-mask-image: none;
+  padding: 0;
+}
+
+.security-card__logfeed::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .security-card__logline {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.8rem; /* ~12.8px - readable monospace */
   color: rgba(255, 255, 255, 0.5);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.5; /* Comfortable leading */
+  line-height: 1.6; /* Comfortable leading */
 }
 
 /* Cursor blink at end of last line */
@@ -231,11 +238,11 @@
   }
 
   .security-card__logfeed {
-    max-height: 6.5rem; /* Reduce visible lines on mobile */
+    max-height: 7rem; /* Reduce visible lines on mobile */
     gap: 0.4rem;
   }
 
   .security-card__logline {
-    font-size: 0.7rem;
+    font-size: 0.78rem;
   }
 }
