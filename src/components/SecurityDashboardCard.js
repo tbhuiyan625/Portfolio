@@ -62,14 +62,17 @@ export default function SecurityDashboardCard({ size = 'hero' }) {
         </div>
 
         {/* Log feed */}
-        <div className="security-card__logfeed">
-          {logs.slice(0, logs.length - 1).map((line, idx) => (
-            <div key={idx} className="security-card__logline" aria-hidden="true">
-              {line}
+        <div className="security-card__logfeed-wrapper">
+          <div className="security-card__logfeed-divider" />
+          <div className="security-card__logfeed">
+            {logs.slice(0, logs.length - 1).map((line, idx) => (
+              <div key={idx} className="security-card__logline" aria-hidden="true">
+                {line}
+              </div>
+            ))}
+            <div className="security-card__logline security-card__logline--cursor" aria-hidden="true">
+              {logs[logs.length - 1]}
             </div>
-          ))}
-          <div className="security-card__logline security-card__logline--cursor" aria-hidden="true">
-            {logs[logs.length - 1]}
           </div>
         </div>
       </div>
