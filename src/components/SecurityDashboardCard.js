@@ -19,11 +19,14 @@ export default function SecurityDashboardCard({ size = 'hero' }) {
     <div className={containerClass} aria-label="Security dashboard">
       <div className="security-card__sweep" />
       <div className="security-card__inner">
-        <div className="security-card__header">Security Dashboard</div>
-        <div className="security-card__subtitle">Cloud • AppSec • Monitoring</div>
+        {/* Header block */}
+        <div className="security-card__header-block">
+          <div className="security-card__header">Security Dashboard</div>
+          <div className="security-card__subtitle">Cloud • AppSec • Monitoring</div>
+        </div>
 
-        {/* Status chips */}
-        <div className="security-card__chips" role="group" aria-label="status chips">
+        {/* Status chips row */}
+        <div className="security-card__chips-container" role="group" aria-label="status chips">
           <span className="security-chip">RLS: Enforced</span>
           <span className="security-chip">RBAC: Active</span>
           <span className="security-chip">Audit Logs: Enabled</span>
@@ -31,27 +34,35 @@ export default function SecurityDashboardCard({ size = 'hero' }) {
           <span className="security-chip">Build: Passing</span>
         </div>
 
-        {/* Mini panels */}
-        <div className="security-card__panels" aria-label="dashboard panels">
+        {/* 2-column grid for mini cards */}
+        <div className="security-card__grid">
           <div className="security-panel">
             <div className="security-panel__title">Access Control</div>
-            <div className="security-panel__item"><span className="dot" />Policies: RBAC + RLS</div>
-            <div className="security-panel__item"><span className="dot" />Tenants: Protected</div>
+            <div className="security-panel__items">
+              <div className="security-panel__item"><span className="dot" />Policies: RBAC + RLS</div>
+              <div className="security-panel__item"><span className="dot" />Tenants: Protected</div>
+            </div>
           </div>
           <div className="security-panel">
             <div className="security-panel__title">Audit Trail</div>
-            <div className="security-panel__item"><span className="dot" />Events: Auth + CRUD</div>
-            <div className="security-panel__item"><span className="dot" />Integrity: Verified</div>
+            <div className="security-panel__items">
+              <div className="security-panel__item"><span className="dot" />Events: Auth + CRUD</div>
+              <div className="security-panel__item"><span className="dot" />Integrity: Verified</div>
+            </div>
           </div>
-          <div className="security-panel">
-            <div className="security-panel__title">Cloud / Infra</div>
+        </div>
+
+        {/* Full-width Cloud/Infra card */}
+        <div className="security-panel security-panel--full">
+          <div className="security-panel__title">Cloud / Infra</div>
+          <div className="security-panel__items">
             <div className="security-panel__item"><span className="dot" />AWS Services: Connected</div>
             <div className="security-panel__item"><span className="dot" />Secrets: Protected</div>
           </div>
         </div>
 
         {/* Log feed */}
-        <div className="security-card__logs">
+        <div className="security-card__logfeed">
           {logs.slice(0, logs.length - 1).map((line, idx) => (
             <div key={idx} className="security-card__logline" aria-hidden="true">
               {line}
