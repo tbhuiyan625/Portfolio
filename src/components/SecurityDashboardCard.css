@@ -19,9 +19,16 @@
 .security-card__header {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: 0.18em;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.security-card__subtitle {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
 }
 
@@ -49,12 +56,17 @@
   margin-left: 6px;
   background: rgba(255, 255, 255, 0.6);
   vertical-align: bottom;
-  animation: cursor-blink 1.2s steps(2, start) infinite;
 }
 
 @keyframes cursor-blink {
   0%, 49% { opacity: 0; }
   50%, 100% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .security-card__logline--cursor::after {
+    animation: cursor-blink 1.2s steps(2, start) infinite;
+  }
 }
 
 .security-card__chips {
@@ -71,6 +83,47 @@
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+/* Mini panels */
+.security-card__panels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.security-panel {
+  flex: 1 1 9rem;
+  min-width: 9rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.6rem 0.7rem;
+}
+
+.security-panel__title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+
+.security-panel__item {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.security-panel__item .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.55);
 }
 
 /* Subtle scan sweep overlay */
