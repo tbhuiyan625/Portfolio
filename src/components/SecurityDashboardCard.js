@@ -6,12 +6,9 @@ export default function SecurityDashboardCard({ size = 'hero' }) {
 
   const logs = [
     '[RLS] RLS_POLICY_APPLIED clients',
-    '[RBAC] RBAC_ROLE_UPDATED admin -> billing',
+    '[RBAC] RBAC_ROLE_UPDATED admin → billing',
     '[AUDIT] AUDIT_EVENT_WRITE auth.login',
-    '[SEC] SECURITY_CHECK passed',
-    '[IR] INCIDENT_TRIAGE started',
     '[AWS] SERVICE_CONNECTED s3',
-    '[APP] FRONTEND_BUILD passing',
     '[DB] SUPABASE_POSTGRES online'
   ];
 
@@ -52,25 +49,26 @@ export default function SecurityDashboardCard({ size = 'hero' }) {
           </div>
         </div>
 
-        {/* Full-width Cloud/Infra card */}
+        {/* Full-width Cloud/Infrastructure card */}
         <div className="security-panel security-panel--full">
-          <div className="security-panel__title">Cloud / Infra</div>
+          <div className="security-panel__title">Cloud / Infrastructure</div>
           <div className="security-panel__items">
             <div className="security-panel__item"><span className="dot" />AWS Services: Connected</div>
             <div className="security-panel__item"><span className="dot" />Secrets: Protected</div>
           </div>
         </div>
 
-        {/* Log feed */}
-        <div className="security-card__logfeed-wrapper">
-          <div className="security-card__logfeed-divider" />
-          <div className="security-card__logfeed">
+        {/* Code Panel - Terminal Output */}
+        <div className="security-code-panel">
+          <div className="security-code-panel__header">Terminal Output</div>
+          <div className="security-code-panel__divider" />
+          <div className="security-code-panel__content">
             {logs.slice(0, logs.length - 1).map((line, idx) => (
-              <div key={idx} className="security-card__logline" aria-hidden="true">
+              <div key={idx} className="security-code-panel__line" aria-hidden="true">
                 {line}
               </div>
             ))}
-            <div className="security-card__logline security-card__logline--cursor" aria-hidden="true">
+            <div className="security-code-panel__line security-code-panel__line--cursor" aria-hidden="true">
               {logs[logs.length - 1]}
             </div>
           </div>

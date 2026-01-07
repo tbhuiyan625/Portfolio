@@ -115,66 +115,71 @@
   height: fit-content;
 }
 
-/* Log feed wrapper - contained section with padding and divider */
-.security-card__logfeed-wrapper {
+/* Code Panel - Terminal Output Box */
+.security-code-panel {
   display: flex;
   flex-direction: column;
-  padding: 1rem 1.5rem 1.5rem; /* pt-4 pb-6 px-6 */
-  margin-top: 0.75rem; /* extra gap below Cloud/Infra card */
-}
-
-.security-card__logfeed-divider {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08); /* Subtle divider */
-  margin-bottom: 1rem; /* 16px - separation between divider and logs */
-}
-
-/* Log feed container - ensure full text visibility */
-.security-card__logfeed {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem; /* 8px - comfortable line spacing */
-  max-height: 10rem; /* ~160px - intentional height */
-  overflow: auto; /* allow scroll without clipping */
-  mask-image: none;
-  -webkit-mask-image: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
   padding: 0;
+  margin-top: 1rem; /* mt-4 - clear separation above */
+  overflow: hidden;
 }
 
-.security-card__logfeed::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+.security-code-panel__header {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.06em;
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  font-weight: 600;
 }
 
-.security-card__logline {
+.security-code-panel__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Code content area */
+.security-code-panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem; /* tight line spacing */
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  max-height: 7.5rem; /* ~120px - fixed compact height */
+  overflow: hidden; /* clean crop */
+}
+
+.security-code-panel__line {
   font-family: var(--font-mono);
-  font-size: 0.8rem; /* ~12.8px - readable monospace */
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem; /* text-xs - small readable monospace */
+  color: rgba(255, 255, 255, 0.6);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.6; /* Comfortable leading */
+  line-height: 1.5; /* leading-relaxed */
 }
 
 /* Cursor blink at end of last line */
-.security-card__logline--cursor::after {
+.security-code-panel__line--cursor::after {
   content: '';
   display: inline-block;
-  width: 8px;
-  height: 1rem;
-  margin-left: 6px;
+  width: 7px;
+  height: 0.85rem;
+  margin-left: 4px;
   background: rgba(255, 255, 255, 0.6);
-  vertical-align: bottom;
+  vertical-align: text-bottom;
 }
 
-@keyframes cursor-blink {
+@keyframes code-cursor-blink {
   0%, 49% { opacity: 0; }
   50%, 100% { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .security-card__logline--cursor::after {
-    animation: cursor-blink 1.2s steps(2, start) infinite;
+  .security-code-panel__line--cursor::after {
+    animation: code-cursor-blink 1.2s steps(2, start) infinite;
   }
 }
 
@@ -237,12 +242,12 @@
     width: calc(100vw - 2rem);
   }
 
-  .security-card__logfeed {
-    max-height: 7rem; /* Reduce visible lines on mobile */
-    gap: 0.4rem;
+  .security-code-panel__content {
+    max-height: 6rem; /* Reduce visible lines on mobile */
+    gap: 0.3rem;
   }
 
-  .security-card__logline {
-    font-size: 0.78rem;
+  .security-code-panel__line {
+    font-size: 0.7rem;
   }
 }
